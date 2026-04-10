@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Game Flavortown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="ui-panel">
+            <h2>Planet Selection</h2>
+            <label>Current Planet: <span id="planet-name">Earth</span></label>
+            <select id="planet-select">
+                <option value="earth">Earth</option>
+                <option value="moon">Moon</option>
+                <option value="mars">Mars</option>
+                <option value="venus">Venus</option>
+                <option value="jupiter">Jupiter</option>
+                <option value="zero">Zero-G</option>
+            </select>
+            
+            <label>Rocket Fuel: <span id="fuel-value">100</span></label>
+            <input type="range" id="fuel-slider" min="50" max="500" step="10" value="100">
+            
+            <h3>Controls</h3>
+            <p>W / ↑: Main thrust<br>A/D / ←/→: Rotate<br>S / ↓: Downward thrust</p>
+            
+            <button id="reset-btn">Reset Rocket</button>
+            <button id="launch-btn">Launch</button>
+        </div>
+        <div id="game-canvas"></div>
+    </div>
+    <script src="script.js?v=11"></script>
+</body>
+</html>

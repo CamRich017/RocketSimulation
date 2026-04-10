@@ -1,0 +1,16 @@
+{
+  "name": "rocket-game-flavortown",
+  "version": "1.0.0",
+  "description": "A space rocket simulation game with customizable environment factors",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000",
+    "dev": "npx live-server --port=3000"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "keywords": ["game", "rocket", "simulation", "space", "browser"],
+  "author": "",
+  "license": "MIT"
+}
