@@ -12,15 +12,6 @@ A browser-based realistic rocket simulator where you can customize environmental
   - **Venus**: High gravity, thick atmosphere, moderate wind
   - **Jupiter**: Very high gravity, low density, extreme wind
   - **Zero-G**: No gravity, atmosphere, or wind
-- Advanced collision detection with realistic hitboxes for terrain and launch pad
-- Launch pad structure with stricter landing requirements
-- Dynamic terrain with hills and varied ground levels
-- Multi-layer parallax background that creates depth as you ascend
-- Particle effects for thrust exhaust, crashes, and atmospheric haze
-- Real-time HUD displaying velocity, altitude, fuel, angle, and wind strength
-- Visual altitude indicator bar
-- Enhanced crash effects with debris particles
-- Atmospheric visual effects based on planet density
 
 ## Controls
 
