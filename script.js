@@ -434,9 +434,9 @@ window.onload = function() {
         }
 
         // Terrain
-        ctx.fillStyle = '#228B22';
+        ctx.fillStyle = '#30c330';
         ctx.beginPath();
-        ctx.moveTo(0, 600);
+        ctx.moveTo(0, 700);
         terrain.forEach(point => {
             const screenY = point.y - cameraY;
             ctx.lineTo(point.x, screenY);
@@ -448,7 +448,7 @@ window.onload = function() {
         // Launch pad
         const padScreenY = launchPad.y - cameraY;
         if (padScreenY < 600) {
-            ctx.fillStyle = '#696969';
+            ctx.fillStyle = '#252525';
             ctx.fillRect(launchPad.x, padScreenY, launchPad.width, launchPad.height);
             ctx.fillStyle = '#FFD700';
             ctx.fillRect(launchPad.x + 40, padScreenY - 10, 20, 10);
@@ -472,11 +472,11 @@ window.onload = function() {
             ctx.rotate(rocket.angle);
 
             // Rocket body
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = 'blue';
             ctx.fillRect(-15, -40, 30, 80);
 
             // Rocket nose (triangle on top of body)
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'black';
             ctx.beginPath();
             ctx.moveTo(0, -70);
             ctx.lineTo(-15, -40);
