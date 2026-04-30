@@ -4,7 +4,7 @@ A browser-based realistic rocket simulator where you can customize environmental
 
 ## Features
 
-- Realistic rocket physics simulation with detailed 3D-style model and animated thrust flames
+- Realistic rocket physics simulation with detailed 2D-style model and animated thrust flames
 - Planet selection with authentic gravity, atmosphere, and wind conditions:
   - **Earth**: Standard gravity, air density, and light wind
   - **Moon**: Low gravity, thin atmosphere, no wind
