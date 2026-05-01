@@ -471,41 +471,83 @@ window.onload = function() {
             ctx.translate(rocket.x, rocket.y - cameraY);
             ctx.rotate(rocket.angle);
 
-            // Rocket body
-            ctx.fillStyle = 'blue';
-            ctx.fillRect(-15, -40, 30, 80);
+            // Rocket body gradient
+            const bodyGradient = ctx.createLinearGradient(0, -40, 0, 40);
+            bodyGradient.addColorStop(0, '#6fa7ff');
+            bodyGradient.addColorStop(0.4, '#c3d9ff');
+            bodyGradient.addColorStop(0.65, '#7b9dff');
+            bodyGradient.addColorStop(1, '#253f86');
+            ctx.fillStyle = bodyGradient;
+            ctx.fillRect(-16, -42, 32, 84);
 
-            // Rocket nose (triangle on top of body)
-            ctx.fillStyle = 'black';
+            // Rocket nose cone
             ctx.beginPath();
             ctx.moveTo(0, -70);
-            ctx.lineTo(-15, -40);
-            ctx.lineTo(15, -40);
+            ctx.lineTo(-16, -42);
+            ctx.lineTo(16, -42);
+            ctx.closePath();
+            ctx.fillStyle = '#f7f8ff';
+            ctx.fill();
+            ctx.strokeStyle = '#7a8fc4';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Side fins
+            ctx.fillStyle = '#1d2d5a';
+            ctx.beginPath();
+            ctx.moveTo(-16, 0);
+            ctx.lineTo(-32, 12);
+            ctx.lineTo(-16, 20);
+            ctx.closePath();
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(16, 0);
+            ctx.lineTo(32, 12);
+            ctx.lineTo(16, 20);
             ctx.closePath();
             ctx.fill();
 
-            // Engine nozzle
-            ctx.fillStyle = 'gray';
-            ctx.fillRect(-5, 35, 10, 10);
+            // Body stripes
+            ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(-16, -10);
+            ctx.lineTo(16, -10);
+            ctx.moveTo(-16, 8);
+            ctx.lineTo(16, 8);
+            ctx.stroke();
+
+            // Windows
+            ctx.fillStyle = '#ebf7ff';
+            ctx.beginPath();
+            ctx.arc(-6, -14, 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(6, -14, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Engine nozzle and exhaust
+            ctx.fillStyle = '#4a4f6d';
+            ctx.fillRect(-6, 34, 12, 12);
+            ctx.fillStyle = '#2f3755';
+            ctx.fillRect(-4, 38, 8, 8);
 
             // Thrust flame (animated)
             if (thrusting) {
-                const flameHeight = 20 + Math.sin(Date.now() * 0.01) * 5;
-                ctx.fillStyle = 'orange';
+                const flameHeight = 28 + Math.sin(Date.now() * 0.01) * 5;
+                ctx.shadowBlur = 18;
+                ctx.shadowColor = 'rgba(255, 140, 20, 0.8)';
+                ctx.fillStyle = '#ff8e3c';
                 ctx.beginPath();
-                ctx.moveTo(-8, 40);
-                ctx.lineTo(0, 40 + flameHeight);
-                ctx.lineTo(8, 40);
-                ctx.closePath();
+                ctx.moveTo(-10, 44);
+                ctx.quadraticCurveTo(0, 44 + flameHeight, 10, 44);
                 ctx.fill();
-
-                ctx.fillStyle = 'yellow';
+                ctx.fillStyle = '#ffdd6f';
                 ctx.beginPath();
-                ctx.moveTo(-4, 40);
-                ctx.lineTo(0, 40 + flameHeight * 0.7);
-                ctx.lineTo(4, 40);
-                ctx.closePath();
+                ctx.moveTo(-6, 44);
+                ctx.quadraticCurveTo(0, 44 + flameHeight * 0.6, 6, 44);
                 ctx.fill();
+                ctx.shadowBlur = 0;
             }
 
             ctx.restore();
@@ -517,7 +559,7 @@ window.onload = function() {
         }
 
         if (rocket.landed) {
-            ctx.fillStyle = 'green';
+            ctx.fillStyle = 'lime';
             ctx.font = '32px Arial';
             ctx.fillText('Safe Landing!', 320, 250);
         }
